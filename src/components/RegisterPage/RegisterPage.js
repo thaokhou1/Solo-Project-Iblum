@@ -3,19 +3,26 @@ import {connect} from 'react-redux';
 
 class RegisterPage extends Component {
   state = {
+    firstname: '',
+    email:'',
     username: '',
-    password: '',
+    password: ''
+
   };
 
   registerUser = (event) => {
     event.preventDefault();
 
-    if (this.state.username && this.state.password) {
+    if (this.state.firstname && this.state.email && this.state.username && this.state.password) {
       this.props.dispatch({
         type: 'REGISTER',
         payload: {
+          firstname: this.state.firstname,
+          email: this.state.email,
           username: this.state.username,
           password: this.state.password,
+          
+          
         },
       });
     } else {
@@ -42,6 +49,28 @@ class RegisterPage extends Component {
         )}
         <form onSubmit={this.registerUser}>
           <h1>Register User</h1>
+          <div>
+            <label htmlFor="firstname">
+              First Name:
+              <input
+                type="text"
+                name="firstname"
+                value={this.state.firstname}
+                onChange={this.handleInputChangeFor('firstname')}
+              />
+            </label>
+          </div>
+          <div>
+            <label htmlFor="email">
+             Email:
+              <input
+                type="email"
+                name="email"
+                value={this.state.email}
+                onChange={this.handleInputChangeFor('email')}
+              />
+            </label>
+          </div>
           <div>
             <label htmlFor="username">
               Username:
