@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import Modal from 'react-modal';
+import UploadPictures from '../UploadPicture/UploadPicture';
 
 class UploadModal extends Component {
     constructor() {
@@ -31,7 +32,7 @@ class UploadModal extends Component {
           >
             <div>
               <h2>Upload</h2>
-              Select your memory here <input placeholder= "picture"/>
+              Select your memory here <UploadPictures/>
               Always remember this place <input placeholder="location"/>
               On this day <input placeholder="date"/>
               Secure this moment <input placeholder="voice recorder will go here"/>
