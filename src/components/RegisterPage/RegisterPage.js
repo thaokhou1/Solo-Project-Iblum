@@ -100,17 +100,16 @@ class RegisterPage extends Component {
               name="submit"
               value="Register"
             />
-          </div>
-        </form>
-        <center>
-          <button
+              <button
             type="button"
-            className="link-button"
+            className="log-in"
             onClick={() => {this.props.dispatch({type: 'SET_TO_LOGIN_MODE'})}}
           >
             Login
           </button>
-        </center>
+          </div>
+        </form>
+       
       </div>
     );
   }
