@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import {connect} from 'react-redux';
 
-class RegisterPage extends Component {
+class AccountPage extends Component{
   state = {
     firstname: '',
     email:'',
@@ -48,7 +48,7 @@ class RegisterPage extends Component {
           </h2>
         )}
         <form onSubmit={this.registerUser}>
-          <h2>Create Account</h2>
+          <h2>Update Account</h2>
           <div>
             <label htmlFor="firstname">
               Name:
@@ -97,15 +97,15 @@ class RegisterPage extends Component {
             <input
               className="register"
               type="submit"
-              name="submit"
-              value="Register"
+              name="Update Account"
+              value="Update Account"
             />
               <button
             type="button"
             className="log-in"
             onClick={() => {this.props.dispatch({type: 'SET_TO_LOGIN_MODE'})}}
           >
-            Cancel
+            Delete Account
           </button>
           </div>
         </form>
@@ -122,5 +122,4 @@ const mapStateToProps = state => ({
   errors: state.errors,
 });
 
-export default connect(mapStateToProps)(RegisterPage);
-
+export default connect(mapStateToProps) (AccountPage);
