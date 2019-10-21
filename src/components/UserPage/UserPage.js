@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import LogOutButton from '../LogOutButton/LogOutButton';
 import UploadModal from '../UploadModal/UploadModal'
+import DisplayPicture from '../DisplayPicture/DisplayPicture';
 
 // this could also be written with destructuring parameters as:
 // const UserPage = ({ user }) => (
@@ -14,7 +15,10 @@ const UserPage = (props) => (
     {/* <p>Your ID is: {props.user.id}</p> */}
     {/* <LogOutButton className="log-in" /> */}
     <UploadModal/>
+    <DisplayPicture/>
+   
   </div>
+  
 );
 
 // Instead of taking everything from state, we just want the user info.

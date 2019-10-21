@@ -27,7 +27,17 @@ router.post('/register', (req, res, next) => {
     .catch(() => res.sendStatus(500));
 });
 
+router.put('/register', (req, res, next) => { 
+  const firstname = req.body.firstname;
+  const email = req.body.email;
+  const username = req.body.username;
+  const password = encryptLib.encryptPassword(req.body.password);
 
+  const queryText = 'INSERT INTO "user" (firstname, email, username, password) VALUES ($1, $2,$3,$4) RETURNING id';
+  pool.query(queryText, [firstname, email, username, password])
+    .then(() => res.sendStatus(201))
+    .catch(() => res.sendStatus(500));
+});
 // Handles login form authenticate/login POST
 // userStrategy.authenticate('local') is middleware that we run on this route
 // this middleware will run our POST if successful
@@ -41,6 +51,16 @@ router.post('/logout', (req, res) => {
   // Use passport's built-in method to log out the user
   req.logout();
   res.sendStatus(200);
+});
+
+router.delete('/:id', (req, res) => {
+  const queryText = 'DELETE FROM "user" WHERE "id" = $1';
+  pool.query(queryText, [req.body.id])
+    .then(() => { res.sendStatus(200); })
+    .catch((err) => {
+      console.log('Error completing SELECT user query', err);
+      res.sendStatus(500);
+    });
 });
 
 module.exports = router;
