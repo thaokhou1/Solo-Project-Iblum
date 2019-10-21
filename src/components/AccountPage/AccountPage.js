@@ -6,7 +6,8 @@ class AccountPage extends Component{
     firstname: '',
     email:'',
     username: '',
-    password: ''
+    password: '',
+    id:''
 
   };
 
@@ -35,6 +36,10 @@ class AccountPage extends Component{
       [propertyName]: event.target.value,
     });
   }
+
+  removeUser = () =>{
+    this.props.dispatch({ type: 'DELETE', payload: this.state.id});
+}
 
   render() {
     return (
@@ -103,7 +108,7 @@ class AccountPage extends Component{
               <button
             type="button"
             className="log-in"
-            onClick={() => {this.props.dispatch({type: 'SET_TO_LOGIN_MODE'})}}
+            onClick= {this.removeUser}
           >
             Delete Account
           </button>
