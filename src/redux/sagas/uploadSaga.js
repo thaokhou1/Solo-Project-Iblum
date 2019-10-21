@@ -1,22 +1,37 @@
 import { put, takeLatest } from 'redux-saga/effects';
 import axios from 'axios';
 
-// worker Saga: will be fired on "REGISTER" actions
 function* uploadPicture(action) {
-  try { 
-    console.log('uploadSaga', action.payload);
-    
-
+  try {
     yield axios.post('/api/picture', action.payload);
 
+    const response = yield axios.get('/api/picture');
+    yield put({ type: 'ADD_PICTURE', payload: response.data })
+
+  
   } catch (error) {
-      console.log('Error with  picture post', error);
-   
+    console.log('Error with  picture post', error);
+
   }
 }
 
-function* uploadPictureSaga() {
-  yield takeLatest('UPLOAD', uploadPicture);
+function* deletePic(action) {
+  try {
+    yield axios.delete('/api/picture/' + action.payload);
+
+
+  } catch (err) {
+    console.log('DELETE ERROR:', err);
+  }
 }
 
-export default uploadPictureSaga;
+
+
+function* uploadSaga() {
+  yield takeLatest('GET_PIC', uploadPicture);
+  yield takeLatest('DELETE', deletePic);
+
+
+}
+
+export default uploadSaga;

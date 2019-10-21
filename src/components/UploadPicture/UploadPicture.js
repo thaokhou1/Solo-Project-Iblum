@@ -1,20 +1,25 @@
-import React, { Component } from 'react'
-import { FilePond } from 'react-filepond';
-import 'filepond/dist/filepond.min.css';
+import React, {Component} from 'react'
+import {connect} from 'react-redux'
 
-class UploadPicture extends Component {
-
-    render() {
-        return (
-            <div >
-         
-                <FilePond />
-            </div>
-        )
+class UploadPictures extends Component {
+  state={
+    selectedFile: ''
+  }
+    handleChange = (event)=>{
+      this.setState={
+       selectedFile:  event.target.files
+      }
     }
-
-}
-
-
-
-    export default UploadPicture;
+    
+      render() {
+        return (
+          <div >
+              <input type='file' onChange={this.handleChange}/>
+          </div>
+        );
+      }
+    }
+    const mapStateToProps = state => ({
+      errors: state.errors,
+    });
+export default connect(mapStateToProps) (UploadPictures);
