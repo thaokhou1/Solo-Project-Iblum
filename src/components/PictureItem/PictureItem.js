@@ -12,7 +12,7 @@ class PictureItem extends Component {
         return (
         
                 <tr>
-                    <td><img src={this.state.selctedFile.name}/></td>
+                    <td><img src={this.props.image.img}/></td>
                     <td>{this.props.image.location}</td>
                     <td>{this.props.image.date}</td>
                     <td>{this.props.image.voice_clip}</td>

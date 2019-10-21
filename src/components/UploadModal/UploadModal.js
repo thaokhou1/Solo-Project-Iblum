@@ -43,7 +43,7 @@ class UploadModal extends Component {
     handleSubmit=(event)=> {
       event.preventDefault();
         console.log('hello from the upload btn');
-        this.props.dispatch({type: 'GET_PIC', payload: this.state.newPicture});
+        this.props.dispatch({type: 'POST_PIC', payload: this.state.newPicture});
         this.setState({
           newPicture: {
               img: '',
@@ -67,9 +67,9 @@ class UploadModal extends Component {
           
               <h2>Upload</h2>
               <form onSubmit={this.handleSubmit}>
-                <UploadPictures/>
+                {/* <UploadPictures/> */}
                 
-              {/* Select your memory here <input type='file' onChange={(event)=>this.handleInputChangeFor(event,'img')}/> */}
+              Select your memory here <input type='file' onChange={(event)=>this.handleInputChangeFor(event,'img')}/>
               Always remember this place <input placeholder="location" onChange={(event)=>this.handleInputChangeFor(event,'location')}/>
               On this day <input placeholder="date"  onChange={(event)=>this.handleInputChangeFor(event,'date')}/>
               Secure this moment <input  placeholder="voice recorder will go here"  onChange={(event)=>this.handleInputChangeFor(event,'voice_clip')}/>
