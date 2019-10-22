@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-// import { HashRouter as Router} from 'react-router-dom';
-// import {withRouter} from 'react-router'
-
+import './Picture.css'
+import moment from 'moment'
 
 class PictureItem extends Component {
     removepicture = () =>{
@@ -11,13 +10,21 @@ class PictureItem extends Component {
     render() {
         return (
         
-                <tr>
-                    <td><img src={this.props.image.image} width="320" height="320"/></td>
-                    <td>{this.props.image.date}</td>
-                    <td>{this.props.image.location}</td>
-              
-                    <td><button onClick={this.removepicture}>Delete</button></td>
-               </tr>
+                <div>
+                    <div className="flip-box">
+                    <div className="flip-box-inner">
+                    <div className= "flip-box-front">
+                    <img src={this.props.image.image} width="320" height="320"/>
+                    </div>
+                    <div className="flip-box-back">
+                    <p>{moment(this.props.image.date).format('MM/DD/YYYY')}</p>
+                    <p>{this.props.image.location}</p>
+                    <button onClick={this.removepicture}>Delete</button>
+               </div>
+               </div>
+               </div>
+               <br></br>
+               </div>
         );
     }
 }

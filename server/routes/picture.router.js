@@ -6,11 +6,7 @@ const router = express.Router();
  * GET route template
  */
 router.get('/', (req, res) => {
-  const queryText = `SELECT "user".username,"picture".image, "description".date, "description".location FROM "user"
-  JOIN "user_picture_description" ON "user".id = "user_picture_description".user_id
-  JOIN "picture" ON "picture".id = "user_picture_description".picture_id
-  JOIN  "description" ON "description".id = "user_picture_description".description_id
-   `;
+  const queryText = `SELECT * FROM "picture"`;
   pool.query(queryText)
     .then((result) => { res.send(result.rows); })
     .catch((err) => {
@@ -25,12 +21,14 @@ router.get('/', (req, res) => {
  */
 router.post('/', (req, res) => {
 
+  console.log(req.body);
   
-    const  image= req.body.image;
- 
+    const  image= req.body.img.image;
+    const  date= req.body.date;
+    const  location= req.body.location;
   
-    const queryText = 'INSERT INTO "picture" ("image") VALUES ($1)';
-    pool.query(queryText, [image])
+    const queryText = 'INSERT INTO "picture" ("image","date", "location") VALUES ($1,$2,$3)';
+    pool.query(queryText, [image,date,location])
       .then(() => res.sendStatus(201))
       .catch(error => {
         console.log(error);      

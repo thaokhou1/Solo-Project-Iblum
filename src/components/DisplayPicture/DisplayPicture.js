@@ -10,14 +10,18 @@ class DisplayPicture extends Component {
 
     getPicture() {
         this.props.dispatch({ type: 'GET_PIC' })
+
     }
+
+  
     render() {
         return (
             <div>
                 {this.props.reduxState.pictureList.map((image) => {
-                    return (
-                        <PictureItem key={image.id} image={image} getPicture={this.getPicture} />
+                        console.log('imagine', image.date);
 
+                    return (                       
+                        <PictureItem key={image.id} image={image} getPicture={this.getPicture} />
                     )
                 })}
             </div>

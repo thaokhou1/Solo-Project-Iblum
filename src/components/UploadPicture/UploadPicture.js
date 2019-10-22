@@ -21,12 +21,16 @@ class Uploadimages extends Component {
      console.log("image data" , e.target.result);
      const url='/api/picture'
      const formData ={image:e.target.result}
-    console.log((formData).toString());
+
+    //  this.props.dispatch({ type: 'SET_PIC_STATE', payload: formData });
+    this.props.setPic(formData);
      
-     return axios.post ( url,formData)
-     .then(response=> console.log('result', response))
-     .catch(error => console.log('err', error)
-     )
+    // console.log((formData).toString());
+     
+    // //  return axios.post ( url,formData)
+    //  .then(response=> console.log('result', response))
+    //  .catch(error => console.log('err', error)
+     //)
    }
  }
 

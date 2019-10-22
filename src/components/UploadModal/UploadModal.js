@@ -8,8 +8,12 @@ class UploadModal extends Component {
       super();
       this.state = {
         showModal: false,
-        newPicture:{
-        image:''
+        newDescription:{
+        img:'',
+        date:'' ,
+        location:''
+      
+       
               }
       };
   
@@ -20,12 +24,12 @@ class UploadModal extends Component {
 
     handleInputChangeFor = (event, propertyName) => {
       this.setState({
-        newPicture:{
-          ...this.state.newPicture,
+        newDescription:{
+          ...this.state.newDescription,
         [propertyName]: event.target.value,
         }
       });
-      console.log(this.state.newPicture);
+      console.log(this.state.newDescription);
       
     }
    
@@ -40,16 +44,24 @@ class UploadModal extends Component {
     handleSubmit=(event)=> {
       event.preventDefault();
         console.log('hello from the upload btn');
-        this.props.dispatch({type: 'POST_PIC', payload: this.state.newPicture});
+        this.props.dispatch({type: 'POST_PIC', payload: this.state.newDescription});
         this.setState({
-          newPicture: {
+          newDescription: {
+           img:'',
+            date:'' ,
+           location:''
            
-           image:''
-       
           }
       });
     }
   
+    setImg = (imgUrl)=>{
+      this.setState({
+        newDescription:{
+          img: imgUrl
+        }
+      })
+    }
     render() {
       return (
         <div>
@@ -63,10 +75,10 @@ class UploadModal extends Component {
               <h2>Upload</h2>
               {/* <form onSubmit={this.handleSubmit}> */}
                 
-              <UploadPictures/>
+              Select your memory here <UploadPictures setPic={this.setImg}/>
               {/* Select your memory here <input type='file' onChange={(event)=>this.handleInputChangeFor(event,'img')}/> */}
-              {/* Always remember this place <input placeholder="location" onChange={(event)=>this.handleInputChangeFor(event,'location')}/> */}
-              {/* On this day <input placeholder="date"  onChange={(event)=>this.handleInputChangeFor(event,'date')}/> */}
+              Always remember this place <input placeholder="location" onChange={(event)=>this.handleInputChangeFor(event,'location')}/>
+              On this day <input placeholder="date"  onChange={(event)=>this.handleInputChangeFor(event,'date')}/>
               {/* Secure this moment <input  placeholder="voice recorder will go here"  onChange={(event)=>this.handleInputChangeFor(event,'voice_clip')}/> */}
               {/* </form> */}
             </div>
