@@ -12,10 +12,10 @@ class PictureItem extends Component {
         return (
         
                 <tr>
-                    <td><img src={this.props.image.img}/></td>
-                    <td>{this.props.image.location}</td>
+                    <td><img src={this.props.image.image} width="320" height="320"/></td>
                     <td>{this.props.image.date}</td>
-                    <td>{this.props.image.voice_clip}</td>
+                    <td>{this.props.image.location}</td>
+              
                     <td><button onClick={this.removepicture}>Delete</button></td>
                </tr>
         );

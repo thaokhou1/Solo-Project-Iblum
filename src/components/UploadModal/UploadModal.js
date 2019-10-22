@@ -9,11 +9,8 @@ class UploadModal extends Component {
       this.state = {
         showModal: false,
         newPicture:{
-        img: '',
-        location: '',
-        date: '',
-        voice_clip: ''
-        }
+        image:''
+              }
       };
   
       this.handleOpenModal = this.handleOpenModal.bind(this);
@@ -46,10 +43,8 @@ class UploadModal extends Component {
         this.props.dispatch({type: 'POST_PIC', payload: this.state.newPicture});
         this.setState({
           newPicture: {
-              img:'',
-              location: '',
-              date: '',
-              voice_clip: '',
+           
+           image:''
        
           }
       });
@@ -66,14 +61,14 @@ class UploadModal extends Component {
             <div>
            
               <h2>Upload</h2>
-              <form onSubmit={this.handleSubmit}>
+              {/* <form onSubmit={this.handleSubmit}> */}
                 
               <UploadPictures/>
               {/* Select your memory here <input type='file' onChange={(event)=>this.handleInputChangeFor(event,'img')}/> */}
-              Always remember this place <input placeholder="location" onChange={(event)=>this.handleInputChangeFor(event,'location')}/>
-              On this day <input placeholder="date"  onChange={(event)=>this.handleInputChangeFor(event,'date')}/>
-              Secure this moment <input  placeholder="voice recorder will go here"  onChange={(event)=>this.handleInputChangeFor(event,'voice_clip')}/>
-              </form>
+              {/* Always remember this place <input placeholder="location" onChange={(event)=>this.handleInputChangeFor(event,'location')}/> */}
+              {/* On this day <input placeholder="date"  onChange={(event)=>this.handleInputChangeFor(event,'date')}/> */}
+              {/* Secure this moment <input  placeholder="voice recorder will go here"  onChange={(event)=>this.handleInputChangeFor(event,'voice_clip')}/> */}
+              {/* </form> */}
             </div>
             <br></br>
             <div>

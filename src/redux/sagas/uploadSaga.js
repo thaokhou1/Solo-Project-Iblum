@@ -33,24 +33,14 @@ function* grabPic(action) {
   }
 }
 
-function* grabImage(action) {
-  try {
-    const response = yield axios.get('/api/image');
-    yield put({ type: 'ADD_IMAGE', payload: response.data })
 
-
-
-  } catch (err) {
-    console.log('GET IMAGE ERROR:', err);
-  }
-}
 
 
 function* uploadSaga() {
   yield takeLatest('GET_PIC', grabPic);
   yield takeLatest('POST_PIC', uploadPicture);
   yield takeLatest('DELETE', deletePic);
-  yield takeLatest('GET_IMAGE', grabImage);
+
 
 }
 
