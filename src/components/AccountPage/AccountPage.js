@@ -11,7 +11,7 @@ class AccountPage extends Component{
 
   };
 
-  registerUser = (event) => {
+ updateUser = (event) => {
     event.preventDefault();
 
     if (this.state.firstname && this.state.email && this.state.username && this.state.password) {
@@ -52,7 +52,7 @@ class AccountPage extends Component{
             {this.props.errors.registrationMessage}
           </h2>
         )}
-        <form onSubmit={this.registerUser}>
+        <form onSubmit={this.updateUser}>
           <h2>Update Account</h2>
           <div>
             <label htmlFor="firstname">
