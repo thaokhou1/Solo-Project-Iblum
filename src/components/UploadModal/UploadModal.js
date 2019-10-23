@@ -5,8 +5,8 @@ import AudioUpload from '../AudioUpload/AudioUpload'
 import { connect } from 'react-redux'
 
 class UploadModal extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       showModal: false,
       newDescription: {
@@ -14,6 +14,7 @@ class UploadModal extends Component {
         date: '',
         location: '',
         audio: '',
+        user_id: this.props.user.id
       }
     };
 
@@ -111,5 +112,6 @@ class UploadModal extends Component {
 
 const mapStateToProps = state => ({
   errors: state.errors,
+  user: state.user
 });
 export default connect(mapStateToProps)(UploadModal);

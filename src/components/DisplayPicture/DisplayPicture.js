@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PictureItem from '../PictureItem/PictureItem';
+import { statement } from '@babel/template';
 
 
 class DisplayPicture extends Component {
@@ -8,7 +9,7 @@ class DisplayPicture extends Component {
         this.getPicture();
     }
 
-    getPicture() {
+    getPicture=()=> {
         this.props.dispatch({ type: 'GET_PIC' })
 
     }
@@ -30,5 +31,6 @@ class DisplayPicture extends Component {
 }
 const mapStateToProps = reduxState => ({
     reduxState,
+   
 });
 export default connect(mapStateToProps)(DisplayPicture);

@@ -6,8 +6,9 @@ const router = express.Router();
  * GET route template
  */
 router.get('/', (req, res) => {
-  const queryText = `SELECT * FROM "picture"`;
-  pool.query(queryText)
+  const id= req.user.id
+  const queryText = `SELECT * FROM "picture" WHERE "user_id" = $1`;
+  pool.query(queryText,[id])
     .then((result) => { res.send(result.rows); })
     .catch((err) => {
       console.log('Error completing SELECT picture query', err);
@@ -26,10 +27,11 @@ router.post('/', (req, res) => {
     const  image= req.body.img.image;
     const  date= req.body.date;
     const  location= req.body.location;
-    const audio = req.body.audio.audio
+    const audio = req.body.audio.audio;
+    const user_id = req.body.user_id
   
-    const queryText = 'INSERT INTO "picture" ("image","date", "location", "audio") VALUES ($1, $2, $3, $4)';
-    pool.query(queryText, [image, date, location, audio])
+    const queryText = 'INSERT INTO "picture" ("image","date", "location", "audio", "user_id") VALUES ($1, $2, $3, $4,$5)';
+    pool.query(queryText, [image, date, location, audio, user_id])
       .then(() => res.sendStatus(201))
       .catch(error => {
         console.log(error);      

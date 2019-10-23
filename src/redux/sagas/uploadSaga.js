@@ -1,6 +1,6 @@
 import { put, takeLatest } from 'redux-saga/effects';
 import axios from 'axios';
-
+import {connect} from 'react-redux'
 
 function* uploadSaga() {
   yield takeLatest('GET_PIC', grabPic);
@@ -37,13 +37,13 @@ function* deletePic(action) {
 
 function* grabPic() {
   try {
-    const response = yield axios.get('/api/picture');
+    const response = yield axios.get(`/api/picture`);
     yield put({ type: 'ADD_PICTURE', payload: response.data })
 
 
 
   } catch (err) {
-    console.log('DELETE ERROR:', err);
+    console.log('GET ERROR:', err);
   }
 }
 
@@ -51,6 +51,9 @@ function* grabPic() {
 
 
 
+// const mapStateToProps = state => ({
 
+//   user: state.user
+// });
 
-export default uploadSaga;
+export default  (uploadSaga);
