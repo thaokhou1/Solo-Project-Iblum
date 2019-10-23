@@ -21,14 +21,15 @@ router.get('/', (req, res) => {
  */
 router.post('/', (req, res) => {
 
-  console.log(req.body);
+  console.log(req.body.img);
   
     const  image= req.body.img.image;
     const  date= req.body.date;
     const  location= req.body.location;
+    const audio = req.body.audio.audio
   
-    const queryText = 'INSERT INTO "picture" ("image","date", "location") VALUES ($1,$2,$3)';
-    pool.query(queryText, [image,date,location])
+    const queryText = 'INSERT INTO "picture" ("image","date", "location", "audio") VALUES ($1, $2, $3, $4)';
+    pool.query(queryText, [image, date, location, audio])
       .then(() => res.sendStatus(201))
       .catch(error => {
         console.log(error);      

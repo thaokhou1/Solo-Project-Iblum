@@ -19,7 +19,7 @@ function* setPicture(action) {
 function* uploadPicture(action) {
   try {
     yield axios.post('/api/picture', action.payload);
-  
+
   } catch (error) {
     console.log('Error with  picture post', error);
 
@@ -29,7 +29,6 @@ function* uploadPicture(action) {
 function* deletePic(action) {
   try {
     yield axios.delete('/api/picture/' + action.payload);
-
 
   } catch (err) {
     console.log('DELETE ERROR:', err);

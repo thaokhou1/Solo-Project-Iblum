@@ -18,7 +18,7 @@ class DisplayPicture extends Component {
         return (
             <div>
                 {this.props.reduxState.pictureList.map((image) => {
-                        console.log('imagine', image.date);
+                        console.log('imagine', image.audio);
 
                     return (                       
                         <PictureItem key={image.id} image={image} getPicture={this.getPicture} />
