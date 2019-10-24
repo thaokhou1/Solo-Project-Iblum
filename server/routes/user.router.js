@@ -15,7 +15,7 @@ router.get('/', rejectUnauthenticated, (req, res) => {
 // Handles POST request with new user data
 // The only thing different from this and every other post we've seen
 // is that the password gets encrypted before being inserted
-router.post('/register', (req, res, next) => {
+router.post('/register', rejectUnauthenticated,(req, res, next) => {
   const firstname = req.body.firstname;
   const email = req.body.email;
   const username = req.body.username;
@@ -27,7 +27,7 @@ router.post('/register', (req, res, next) => {
     .catch(() => res.sendStatus(500));
 });
 
-router.put('/update', (req, res, next) => {
+router.put('/update', rejectUnauthenticated,(req, res, next) => {
   const firstname = req.body.firstname;
   const email = req.body.email;
   const username = req.body.username;
@@ -45,18 +45,18 @@ router.put('/update', (req, res, next) => {
 // userStrategy.authenticate('local') is middleware that we run on this route
 // this middleware will run our POST if successful
 // this middleware will send a 404 if not successful
-router.post('/login', userStrategy.authenticate('local'), (req, res) => {
+router.post('/login', rejectUnauthenticated, userStrategy.authenticate('local'), (req, res) => {
   res.sendStatus(200);
 });
 
 // clear all server session information about this user
-router.post('/logout', (req, res) => {
+router.post('/logout', rejectUnauthenticated,(req, res) => {
   // Use passport's built-in method to log out the user
   req.logout();
   res.sendStatus(200);
 });
 
-router.delete('/delete', (req, res) => {
+router.delete('/delete',rejectUnauthenticated, (req, res) => {
   const queryText = 'DELETE FROM "user" WHERE "id" = $1';
   pool.query(queryText, [req.user.id])
     .then(() => { res.sendStatus(200); })
