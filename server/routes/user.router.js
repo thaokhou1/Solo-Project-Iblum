@@ -56,9 +56,9 @@ router.post('/logout', (req, res) => {
   res.sendStatus(200);
 });
 
-router.delete('/:id', (req, res) => {
+router.delete('/delete', (req, res) => {
   const queryText = 'DELETE FROM "user" WHERE "id" = $1';
-  pool.query(queryText, [req.body.id])
+  pool.query(queryText, [req.user.id])
     .then(() => { res.sendStatus(200); })
     .catch((err) => {
       console.log('Error completing SELECT user query', err);

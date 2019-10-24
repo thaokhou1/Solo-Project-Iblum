@@ -18,7 +18,7 @@ function* updateAccount(action) {
 
 function* deleteAccount(action) {
   try {
-    yield axios.delete('/api/user/' + action.payload);
+    yield axios.delete('/api/user/delete' + action.payload);
 
   } catch (err) {
     console.log('DELETE ERROR:', err);
