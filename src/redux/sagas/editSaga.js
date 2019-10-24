@@ -5,10 +5,6 @@ function* updateAccount(action) {
   try {
     yield axios.put('/api/user/update', action.payload);
     console.log('PUT REQ:', action.payload)
-    // passes the username and password from the payload to the server
-    yield axios.post('/api/user/update', action.payload);
-
-
 
   } catch (err) {
     console.log('PUT ERROR:', err);

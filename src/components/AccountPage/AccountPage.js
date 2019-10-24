@@ -27,6 +27,7 @@ class AccountPage extends Component {
         },
         
       });
+      // alert('update complete')
     } else {
       this.props.dispatch({ type: 'UPDATE_INPUT_ERROR' });
     }
@@ -54,7 +55,7 @@ class AccountPage extends Component {
             {this.props.errors.registrationMessage}
           </h2>
         )}
-        <form onSubmit={this.updateUser}>
+        <form >
           <h2>Update Account</h2>
           <div>
             <label htmlFor="firstname">
@@ -101,12 +102,19 @@ class AccountPage extends Component {
             </label>
           </div>
           <div>
-            <input
+            {/* <input
               className="register"
               type="submit"
               name="Update Account"
               value="Update Account"
-            />
+            /> */}
+             <button
+              type="button"
+              className="log-in"
+              onClick={this.updateUser}
+            >
+              Update Account
+          </button>
             <button
               type="button"
               className="log-in"
