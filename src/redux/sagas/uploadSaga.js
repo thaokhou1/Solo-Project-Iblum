@@ -1,6 +1,6 @@
 import { put, takeLatest } from 'redux-saga/effects';
 import axios from 'axios';
-import {connect} from 'react-redux'
+import { connect } from 'react-redux'
 
 function* uploadSaga() {
   yield takeLatest('GET_PIC', grabPic);
@@ -12,7 +12,7 @@ function* uploadSaga() {
 }
 
 function* setPicture(action) {
-  yield put({ type: 'PIC_STATE', payload: action.payload})
+  yield put({ type: 'PIC_STATE', payload: action.payload })
 
 }
 
@@ -51,9 +51,5 @@ function* grabPic() {
 
 
 
-// const mapStateToProps = state => ({
 
-//   user: state.user
-// });
-
-export default  (uploadSaga);
+export default (uploadSaga);

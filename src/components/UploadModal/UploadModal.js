@@ -87,15 +87,13 @@ class UploadModal extends Component {
           <div>
 
             <h2>Upload</h2>
-            {/* <form onSubmit={this.handleSubmit}> */}
 
-            Select your memory here <UploadPictures setPic={this.setImg} />
-            {/* Select your memory here <input type='file' onChange={(event)=>this.handleInputChangeFor(event,'img')}/> */}
-            Always remember this place <input placeholder="location" onChange={(event) => this.handleInputChangeFor(event, 'location')} />
-            On this day <input placeholder="date" onChange={(event) => this.handleInputChangeFor(event, 'date')} />
-            <AudioUpload setAudio={this.setFile} />
-            {/* Secure this moment <input  placeholder="voice recorder will go here"  onChange={(event)=>this.handleInputChangeFor(event,'voice_clip')}/> */}
-            {/* </form> */}
+
+            Select image: <UploadPictures setPic={this.setImg} />
+            Location: <input onChange={(event) => this.handleInputChangeFor(event, 'location')} />
+            Date:<input onChange={(event) => this.handleInputChangeFor(event, 'date')} />
+            Voice Clip: <AudioUpload setAudio={this.setFile} />
+
           </div>
           <br></br>
           <div>

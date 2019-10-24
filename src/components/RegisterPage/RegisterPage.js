@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
 
 class RegisterPage extends Component {
   state = {
     firstname: '',
-    email:'',
+    email: '',
     username: '',
     password: ''
 
@@ -21,12 +21,12 @@ class RegisterPage extends Component {
           email: this.state.email,
           username: this.state.username,
           password: this.state.password,
-          
-          
+
+
         },
       });
     } else {
-      this.props.dispatch({type: 'REGISTRATION_INPUT_ERROR'});
+      this.props.dispatch({ type: 'REGISTRATION_INPUT_ERROR' });
     }
   } // end registerUser
 
@@ -62,7 +62,7 @@ class RegisterPage extends Component {
           </div>
           <div>
             <label htmlFor="email">
-             Email:
+              Email:
               <input
                 type="email"
                 name="email"
@@ -100,16 +100,16 @@ class RegisterPage extends Component {
               name="submit"
               value="Register"
             />
-              <button
-            type="button"
-            className="log-in"
-            onClick={() => {this.props.dispatch({type: 'SET_TO_LOGIN_MODE'})}}
-          >
-            Cancel
+            <button
+              type="button"
+              className="log-in"
+              onClick={() => { this.props.dispatch({ type: 'SET_TO_LOGIN_MODE' }) }}
+            >
+              Cancel
           </button>
           </div>
         </form>
-       
+
       </div>
     );
   }

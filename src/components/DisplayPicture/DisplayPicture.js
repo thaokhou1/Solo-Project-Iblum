@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PictureItem from '../PictureItem/PictureItem';
-import { statement } from '@babel/template';
 
 
 class DisplayPicture extends Component {
@@ -10,11 +9,9 @@ class DisplayPicture extends Component {
     }
 
     getPicture=()=> {
-        this.props.dispatch({ type: 'GET_PIC' })
+        this.props.dispatch({ type: 'GET_PIC' });
 
     }
-
-  
     render() {
         return (
             <div>

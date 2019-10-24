@@ -15,7 +15,7 @@ router.get('/', rejectUnauthenticated, (req, res) => {
 // Handles POST request with new user data
 // The only thing different from this and every other post we've seen
 // is that the password gets encrypted before being inserted
-router.post('/register', (req, res, next) => { 
+router.post('/register', (req, res, next) => {
   const firstname = req.body.firstname;
   const email = req.body.email;
   const username = req.body.username;
@@ -27,14 +27,14 @@ router.post('/register', (req, res, next) => {
     .catch(() => res.sendStatus(500));
 });
 
-router.put('/update', (req, res, next) => { 
+router.put('/update', (req, res, next) => {
   const firstname = req.body.firstname;
   const email = req.body.email;
   const username = req.body.username;
   const password = encryptLib.encryptPassword(req.body.password);
-  const id= req.user.id
+  const id = req.user.id
   const queryText =
- `UPDATE "user"
+    `UPDATE "user"
   SET "firstname"= $1, "email"= $2, "username"=$3, "password"= $4
   WHERE "id" = $5`;
   pool.query(queryText, [firstname, email, username, password, id])

@@ -8,7 +8,7 @@ import './Footer.css'
 
 const Footer = () => (
   <footer>
-    &copy; Iblum
+    &copy; i-blum
   </footer>
 );
 

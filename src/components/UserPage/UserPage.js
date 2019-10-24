@@ -1,6 +1,5 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import LogOutButton from '../LogOutButton/LogOutButton';
 import UploadModal from '../UploadModal/UploadModal'
 import DisplayPicture from '../DisplayPicture/DisplayPicture';
 
@@ -10,15 +9,15 @@ import DisplayPicture from '../DisplayPicture/DisplayPicture';
 const UserPage = (props) => (
   <div>
     <h2 id="welcome">
-      Welcome back, { props.user.username }!
+      Welcome back, {props.user.username}!
     </h2>
     {/* <p>Your ID is: {props.user.id}</p> */}
     {/* <LogOutButton className="log-in" /> */}
-    <UploadModal/>
-    <DisplayPicture/>
-   
+    <UploadModal />
+    <DisplayPicture />
+
   </div>
-  
+
 );
 
 // Instead of taking everything from state, we just want the user info.

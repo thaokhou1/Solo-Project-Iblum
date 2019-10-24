@@ -1,17 +1,17 @@
-import React, {Component} from 'react';
-import {connect} from 'react-redux';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
-class AccountPage extends Component{
+class AccountPage extends Component {
   state = {
     firstname: '',
-    email:'',
+    email: '',
     username: '',
     password: '',
-    id:''
+    id: ''
 
   };
 
- updateUser = (event) => {
+  updateUser = (event) => {
     event.preventDefault();
 
     if (this.state.firstname && this.state.email && this.state.username && this.state.password) {
@@ -22,12 +22,12 @@ class AccountPage extends Component{
           email: this.state.email,
           username: this.state.username,
           password: this.state.password,
-          
-          
+
+
         },
       });
     } else {
-      this.props.dispatch({type: 'UPDATE_INPUT_ERROR'});
+      this.props.dispatch({ type: 'UPDATE_INPUT_ERROR' });
     }
   } // end registerUser
 
@@ -37,9 +37,9 @@ class AccountPage extends Component{
     });
   }
 
-  removeUser = () =>{
-    this.props.dispatch({ type: 'DELETE', payload: this.state.id});
-}
+  removeUser = () => {
+    this.props.dispatch({ type: 'DELETE', payload: this.state.id });
+  }
 
   render() {
     return (
@@ -67,7 +67,7 @@ class AccountPage extends Component{
           </div>
           <div>
             <label htmlFor="email">
-             Email:
+              Email:
               <input
                 type="email"
                 name="email"
@@ -105,16 +105,16 @@ class AccountPage extends Component{
               name="Update Account"
               value="Update Account"
             />
-              <button
-            type="button"
-            className="log-in"
-            onClick= {this.removeUser}
-          >
-            Delete Account
+            <button
+              type="button"
+              className="log-in"
+              onClick={this.removeUser}
+            >
+              Delete Account
           </button>
           </div>
         </form>
-       
+
       </div>
     );
   }
@@ -127,4 +127,4 @@ const mapStateToProps = state => ({
   errors: state.errors,
 });
 
-export default connect(mapStateToProps) (AccountPage);
+export default connect(mapStateToProps)(AccountPage);

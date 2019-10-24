@@ -10,7 +10,7 @@ class PictureItem extends Component {
     playAudio() {
         const audioEl = document.getElementsByClassName("audio-element")[0]
         audioEl.play()
-      }
+    }
     render() {
         return (
 
@@ -21,14 +21,14 @@ class PictureItem extends Component {
                             <img src={this.props.image.image} width="320" height="320" />
                         </div>
                         <div className="flip-box-back">
-                            <p>{moment(this.props.image.date).format('MM/DD/YYYY')}</p>
-                            <p>{this.props.image.location}</p>
-                            <p>   <button onClick={this.playAudio}>
+                            {moment(this.props.image.date).format('MM/DD/YYYY')}
+                            {this.props.image.location}
+                            <button onClick={this.playAudio}>
                                 <span>Play Audio</span>
                             </button>
-                                <audio className="audio-element">
-                                    <source src={this.props.image.audio}></source>
-                                </audio></p>
+                            <audio className="audio-element">
+                                <source src={this.props.image.audio}></source>
+                            </audio>
                             <button onClick={this.removepicture}>Delete</button>
                         </div>
                     </div>
