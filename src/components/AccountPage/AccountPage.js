@@ -16,7 +16,7 @@ class AccountPage extends Component{
 
     if (this.state.firstname && this.state.email && this.state.username && this.state.password) {
       this.props.dispatch({
-        type: 'REGISTER',
+        type: 'UPDATE',
         payload: {
           firstname: this.state.firstname,
           email: this.state.email,
@@ -27,7 +27,7 @@ class AccountPage extends Component{
         },
       });
     } else {
-      this.props.dispatch({type: 'REGISTRATION_INPUT_ERROR'});
+      this.props.dispatch({type: 'UPDATE_INPUT_ERROR'});
     }
   } // end registerUser
 

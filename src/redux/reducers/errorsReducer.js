@@ -32,10 +32,25 @@ const registrationMessage = (state = '', action) => {
   }
 };
 
+
+// updateMessage holds the string that will display
+// on the update screen if there's an error
+const updateMessage = (state = '', action) => {
+  switch (action.type) {
+    case 'CLEAR_UPDATE_ERROR':
+      return '';
+    case 'UPDATE_INPUT_ERROR':
+      return 'Choose a username and password!';
+      return 'Oops! That didn\'t work. The username might already be taken. Try again!';
+    default:
+      return state;
+  }
+};
 // make one object that has keys loginMessage, registrationMessage
 // these will be on the redux state at:
 // state.errors.loginMessage and state.errors.registrationMessage
 export default combineReducers({
   loginMessage,
   registrationMessage,
+  updateMessage,
 });

@@ -27,14 +27,17 @@ router.post('/register', (req, res, next) => {
     .catch(() => res.sendStatus(500));
 });
 
-router.put('/register', (req, res, next) => { 
+router.put('/update', (req, res, next) => { 
   const firstname = req.body.firstname;
   const email = req.body.email;
   const username = req.body.username;
   const password = encryptLib.encryptPassword(req.body.password);
-
-  const queryText = 'INSERT INTO "user" (firstname, email, username, password) VALUES ($1, $2,$3,$4) RETURNING id';
-  pool.query(queryText, [firstname, email, username, password])
+  const id= req.user.id
+  const queryText =
+ `UPDATE "user"
+  SET "firstname"= $1, "email"= $2, "username"=$3, "password"= $4
+  WHERE "id" = $5`;
+  pool.query(queryText, [firstname, email, username, password, id])
     .then(() => res.sendStatus(201))
     .catch(() => res.sendStatus(500));
 });
