@@ -21,13 +21,14 @@ router.get('/', (req, res) => {
  * POST route template
  */
 router.post('/', (req, res) => {
+console.log(req.user.id);
 
 
   const image = req.body.img.image;
   const date = req.body.date;
   const location = req.body.location;
   const audio = req.body.audio.audio;
-  const user_id = req.body.user_id
+  const user_id = req.user.id
 
   const queryText = 'INSERT INTO "picture" ("image","date", "location", "audio", "user_id") VALUES ($1, $2, $3, $4,$5)';
   pool.query(queryText, [image, date, location, audio, user_id])

@@ -14,7 +14,7 @@ class UploadModal extends Component {
         date: '',
         location: '',
         audio: '',
-        user_id: this.props.user.id
+        // user_id: this.props.user.id
       }
     };
 
@@ -92,7 +92,7 @@ class UploadModal extends Component {
 
             Select image: <UploadPictures setPic={this.setImg} />
             Location: <input onChange={(event) => this.handleInputChangeFor(event, 'location')} />
-            Date:<input onChange={(event) => this.handleInputChangeFor(event, 'date')} />
+            Date:<input type="date" onChange={(event) => this.handleInputChangeFor(event, 'date')} />
             Voice Clip: <AudioUpload setAudio={this.setFile} />
 
           </div>

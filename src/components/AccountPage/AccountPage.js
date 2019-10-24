@@ -25,6 +25,7 @@ class AccountPage extends Component {
 
 
         },
+        
       });
     } else {
       this.props.dispatch({ type: 'UPDATE_INPUT_ERROR' });
