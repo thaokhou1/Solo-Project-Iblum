@@ -12,6 +12,7 @@ class AccountPage extends Component {
   };
 
   updateUser = (event) => {
+    this.props.history.push('/')
     event.preventDefault();
 
     if (this.state.firstname && this.state.email && this.state.username && this.state.password) {
@@ -25,12 +26,11 @@ class AccountPage extends Component {
 
 
         },
-        
       });
-      // alert('update complete')
     } else {
       this.props.dispatch({ type: 'UPDATE_INPUT_ERROR' });
     }
+ 
   } // end registerUser
 
   handleInputChangeFor = propertyName => (event) => {
@@ -40,6 +40,7 @@ class AccountPage extends Component {
   }
 
   removeUser = () => {
+    this.props.history.push('/')
     this.props.dispatch({ type: 'DELETE', payload: this.state.id });
     
   }
@@ -102,12 +103,6 @@ class AccountPage extends Component {
             </label>
           </div>
           <div>
-            {/* <input
-              className="register"
-              type="submit"
-              name="Update Account"
-              value="Update Account"
-            /> */}
              <button
               type="button"
               className="log-in"

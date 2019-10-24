@@ -8,9 +8,9 @@ import DisplayPicture from '../DisplayPicture/DisplayPicture';
 // and then instead of `props.user.username` you could use `user.username`
 const UserPage = (props) => (
   <div>
-    <h2 id="welcome">
+    {/* <h2 id="welcome">
       Welcome back, {props.user.username}!
-    </h2>
+    </h2> */}
     {/* <p>Your ID is: {props.user.id}</p> */}
     {/* <LogOutButton className="log-in" /> */}
     <UploadModal />
