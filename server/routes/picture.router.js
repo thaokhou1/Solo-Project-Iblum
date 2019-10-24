@@ -1,11 +1,12 @@
 const express = require('express');
 const pool = require('../modules/pool');
 const router = express.Router();
+const { rejectUnauthenticated } = require('../modules/authentication-middleware');
 
 /**
  * GET route template
  */
-router.get('/', (req, res) => {
+router.get('/', rejectUnauthenticated,(req, res) => {
   const id = req.user.id
   const queryText = `SELECT * FROM "picture" WHERE "user_id" = $1`;
   pool.query(queryText, [id])
@@ -20,7 +21,7 @@ router.get('/', (req, res) => {
 /**
  * POST route template
  */
-router.post('/', (req, res) => {
+router.post('/',rejectUnauthenticated, (req, res) => {
 console.log(req.user.id);
 
 
@@ -39,7 +40,7 @@ console.log(req.user.id);
     });
 })
 
-router.delete('/:id', (req, res) => {
+router.delete('/:id',rejectUnauthenticated, (req, res) => {
   const queryText = 'DELETE FROM "picture" WHERE id=$1';
   pool.query(queryText, [req.params.id])
     .then(() => { res.sendStatus(200); })
