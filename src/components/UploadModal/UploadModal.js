@@ -55,6 +55,7 @@ class UploadModal extends Component {
 
       }
     });
+    this.handleCloseModal()
   }
 
   setImg = (imgUrl) => {

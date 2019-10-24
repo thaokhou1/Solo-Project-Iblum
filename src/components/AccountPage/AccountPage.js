@@ -39,6 +39,7 @@ class AccountPage extends Component {
 
   removeUser = () => {
     this.props.dispatch({ type: 'DELETE', payload: this.state.id });
+    
   }
 
   render() {

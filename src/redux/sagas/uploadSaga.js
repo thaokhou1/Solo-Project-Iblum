@@ -1,6 +1,5 @@
 import { put, takeLatest } from 'redux-saga/effects';
 import axios from 'axios';
-import { connect } from 'react-redux'
 
 function* uploadSaga() {
   yield takeLatest('GET_PIC', grabPic);
@@ -19,7 +18,7 @@ function* setPicture(action) {
 function* uploadPicture(action) {
   try {
     yield axios.post('/api/picture', action.payload);
-
+    yield grabPic();
   } catch (error) {
     console.log('Error with  picture post', error);
 
