@@ -4,11 +4,11 @@ const router = express.Router();
 const { rejectUnauthenticated } = require('../modules/authentication-middleware');
 
 /**
- * GET route template
+ * GET route template 
  */
 router.get('/', rejectUnauthenticated,(req, res) => {
   const id = req.user.id
-  const queryText = `SELECT * FROM "picture" WHERE "user_id" = $1 `;
+  const queryText = `SELECT * FROM "picture" WHERE "user_id" = $1 ORDER BY "date" DESC`;
   pool.query(queryText, [id])
     .then((result) => { res.send(result.rows); })
     .catch((err) => {

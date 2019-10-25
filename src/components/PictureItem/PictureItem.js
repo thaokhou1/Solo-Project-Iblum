@@ -12,7 +12,7 @@ class PictureItem extends Component {
         audioEl.play()
     }
     render() {
-        return (
+        return (         
             // <li >
 
             //     <div className="container" >
@@ -74,7 +74,7 @@ class PictureItem extends Component {
                         </div>
                     </div>
                 </div>
-                <br></br>
+          
              </div> 
         );
     }
