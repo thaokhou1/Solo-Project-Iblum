@@ -3,26 +3,22 @@ import Modal from 'react-modal';
 import UploadPictures from '../UploadPicture/UploadPicture';
 import AudioUpload from '../AudioUpload/AudioUpload'
 import { connect } from 'react-redux'
+import Popup from 'reactjs-popup'
+
 
 class UploadModal extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      showModal: false,
-      newDescription: {
-        img: '',
-        date: '',
-        location: '',
-        audio: '',
-        // user_id: this.props.user.id
-      }
-    };
-
-    this.handleOpenModal = this.handleOpenModal.bind(this);
-    this.handleCloseModal = this.handleCloseModal.bind(this);
-
+    this.state = { open: false };
+    this.openModal = this.openModal.bind(this);
+    this.closeModal = this.closeModal.bind(this);
   }
-
+  openModal() {
+    this.setState({ open: true });
+  }
+  closeModal() {
+    this.setState({ open: false });
+  }
   handleInputChangeFor = (event, propertyName) => {
     this.setState({
       newDescription: {
@@ -32,14 +28,6 @@ class UploadModal extends Component {
     });
     console.log(this.state.newDescription);
 
-  }
-
-  handleOpenModal() {
-    this.setState({ showModal: true });
-  }
-
-  handleCloseModal() {
-    this.setState({ showModal: false });
   }
 
   handleSubmit = (event) => {
@@ -55,7 +43,7 @@ class UploadModal extends Component {
 
       }
     });
-    this.handleCloseModal()
+    this.closeModal()
   }
 
   setImg = (imgUrl) => {
@@ -79,31 +67,32 @@ class UploadModal extends Component {
   }
   render() {
     return (
-      <div>
-        <button onClick={this.handleOpenModal}>Upload Picture</button>
-        <Modal 
-       
-          isOpen={this.state.showModal}
-          contentLabel="Minimal Modal Example"
+      <div >
+        <button className="button" onClick={this.openModal}>
+          Upload Picture
+      </button>
+        <Popup
+          open={this.state.open}
+          closeOnDocumentClick
+          onClose={this.closeModal}
         >
-          <div>
-
-            <h2>Upload</h2>
-
-
-            Select image: <UploadPictures setPic={this.setImg} />
-            Location: <input onChange={(event) => this.handleInputChangeFor(event, 'location')} />
-            Date:<input type="date" onChange={(event) => this.handleInputChangeFor(event, 'date')} />
-            Voice Clip: <AudioUpload setAudio={this.setFile} />
-
-          </div>
+                 Select image: <UploadPictures setPic={this.setImg} />
+          Location: <input onChange={(event) => this.handleInputChangeFor(event, 'location')} />
+          Date:<input type="date" onChange={(event) => this.handleInputChangeFor(event, 'date')} />
+          Voice Clip: <AudioUpload setAudio={this.setFile} />
           <br></br>
           <div>
             <button onClick={this.handleSubmit}>Upload</button>
-            <button onClick={this.handleCloseModal}>Cancel</button>
+            <button className="dog" onClick={this.closeModal}>Close</button>
           </div>
-        </Modal>
+       
+   
+   
+        
+        </Popup>
+    
       </div>
+
     );
   }
 }

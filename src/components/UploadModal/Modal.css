@@ -1,4 +1,4 @@
-.modal {
+/* .modal {
     position: fixed;
     top: 0;
     left: 0;
@@ -11,7 +11,7 @@
   .modal-main {
     position:fixed;
     background-color: #b22613;
-    width: 80%;
+    width: 50%;
     height: auto;
     top:50%;
     left:50%;
@@ -26,3 +26,52 @@
     display: none;
   }
  
+  .uploadInfo{
+    margin: 0px
+  }
+
+  h2{
+    margin: 0px;
+  } */
+
+  /*---------testing modal 2--------------*/
+
+  .modal {
+    font-size: 12px;
+  }
+  .modal > .header {
+    width: 100%;
+    border-bottom: 1px solid gray;
+    font-size: 18px;
+    text-align: center;
+    padding: 5px;
+  }
+  .modal > .content {
+    width: 100%;
+    padding: 10px 5px;
+  }
+  .modal > .actions {
+    margin: auto;
+  }
+  .modal > .actions {
+    width: 100%;
+    padding: 10px 5px;
+    text-align: center;
+  }
+  .modal > .close {
+    cursor: pointer;
+    position: absolute;
+    display: block;
+    padding: 2px 5px;
+    line-height: 20px;
+    right: -10px;
+    top: -10px;
+    font-size: 24px;
+    background: red;
+    border-radius: 18px;
+    border: 1px solid red; 
+  }
+
+  .dog{
+    background:red
+  }

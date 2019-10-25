@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import swal from 'sweetalert';class AccountPage extends Component {
+
+class AccountPage extends Component {
   state = {
     firstname: '',
     email: '',
