@@ -1,8 +1,8 @@
 /* The flip box container - set the width and height to whatever you want. We have added the border property to demonstrate that the flip itself goes out of the box on hover (remove perspective if you don't want the 3D effect */
 .flip-box {
     background-color: transparent;
-    width: 320px;
-    height: 320px;
+    width: 220px;
+    height: 220px;
     perspective: 1000px; /* Remove this if you don't want the 3D effect */
     margin: 9px;
   }
@@ -20,7 +20,7 @@
   
   /* Do an horizontal flip when you move the mouse over the flip box container */
   .flip-box:hover .flip-box-inner {
-    transform: rotateY(360deg);
+    transform: rotateY(180deg);
   }
   
   /* Position the front and back side */
@@ -60,8 +60,8 @@
     color: black;
     border: 1px solid black;
     border-radius: 5px;
-    height: 320px;
-    width: 320px;
+    height: 220px;
+    width: 220px;
     list-style: none;
     text-align: center;
     margin: 10px;
@@ -74,8 +74,8 @@
 }
 .cardImg{
   flex-grow: 1;
-  width: 320px;
-  height: 320px;
+  width: 220px;
+  height: 220px;
   align-self: center;
 }
 
@@ -88,7 +88,7 @@ h3{
 
 .container {
   position: relative;
-  width: 320px;
+  width: 220px;
 }
 
 .image {

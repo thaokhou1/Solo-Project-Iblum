@@ -26,13 +26,12 @@ class UploadModal extends Component {
         [propertyName]: event.target.value,
       }
     });
-    console.log(this.state.newDescription);
+
 
   }
 
   handleSubmit = (event) => {
     event.preventDefault();
-    console.log('hello from the upload btn');
     this.props.dispatch({ type: 'POST_PIC', payload: this.state.newDescription });
     this.setState({
       newDescription: {
@@ -53,7 +52,7 @@ class UploadModal extends Component {
         img: imgUrl
       }
     })
-    console.log(this.state.newDescription)
+
   }
   setFile = (audioUrl) => {
     this.setState({
@@ -62,7 +61,7 @@ class UploadModal extends Component {
         audio: audioUrl
       }
     })
-    console.log(this.state.newDescription)
+
 
   }
   render() {

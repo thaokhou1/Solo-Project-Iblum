@@ -16,7 +16,7 @@ class PictureItem extends Component {
             // <li >
 
             //     <div className="container" >
-            //         <img  src={this.props.image.image} width="320" height="320"  hspace="20"/>
+            //         <img  src={this.props.image.image} width="220" height="220"  hspace="20"/>
             //         <div class="overlay">
             //         <h3> {moment(this.props.image.date).format('MM/DD/YYYY')}</h3>
             //         <h3>{this.props.image.location}</h3>
@@ -59,7 +59,7 @@ class PictureItem extends Component {
                 <div className="flip-box">
                     <div className="flip-box-inner">
                         <div className="flip-box-front">
-                            <img className="imageClass" src={this.props.image.image} width="320" height="320" />
+                            <img className="imageClass" src={this.props.image.image} width="220" height="220" />
                         </div>
                         <div className="flip-box-back">
                            <h3>Date: {moment(this.props.image.date).format('MM/DD/YYYY')}</h3>
