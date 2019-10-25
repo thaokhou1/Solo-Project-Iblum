@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-
-class AccountPage extends Component {
+import swal from 'sweetalert';class AccountPage extends Component {
   state = {
     firstname: '',
     email: '',
@@ -16,6 +15,7 @@ class AccountPage extends Component {
     event.preventDefault();
 
     if (this.state.firstname && this.state.email && this.state.username && this.state.password) {
+      
       this.props.dispatch({
         type: 'UPDATE',
         payload: {
@@ -27,6 +27,7 @@ class AccountPage extends Component {
 
         },
       });
+   
     } else {
       this.props.dispatch({ type: 'UPDATE_INPUT_ERROR' });
     }
