@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import UploadModal from '../UploadModal/UploadModal'
 import DisplayPicture from '../DisplayPicture/DisplayPicture';
-
+import '../App/App.css'
 // this could also be written with destructuring parameters as:
 // const UserPage = ({ user }) => (
 // and then instead of `props.user.username` you could use `user.username`
@@ -13,7 +13,7 @@ const UserPage = (props) => (
     </h2> */}
     {/* <p>Your ID is: {props.user.id}</p> */}
     {/* <LogOutButton className="log-in" /> */}
-    <UploadModal />
+    <div className="uploadmodal"><UploadModal /></div>
     <DisplayPicture />
 
   </div>

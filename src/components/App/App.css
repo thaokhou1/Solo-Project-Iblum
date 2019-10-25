@@ -1,6 +1,7 @@
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0px;
+    background-color: #A64500;
 }
 
 .alert {
@@ -9,7 +10,7 @@ body {
 }
 
 form {
-    background-color: #dbd5d5;
+    background-color: hsla(25, 100%, 33%, 0.568);
     width: 30%;
     height: 320px;
     margin: 20px auto;
@@ -23,9 +24,9 @@ input {
 }
 
 .log-in, .log-out, .register {
-  background-color: red;
+  background-color: #ffc400be;
   border-radius: 4px;
-  color: #f8f8f8;
+  color: #b22613;
   min-height: 50px;
   min-width: 100px;
   outline:0;
@@ -48,3 +49,7 @@ input {
     cursor: pointer;
 }
 
+.uploadmodal{
+    float: right ;
+    margin:10px;
+}

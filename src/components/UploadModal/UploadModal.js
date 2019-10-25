@@ -81,7 +81,8 @@ class UploadModal extends Component {
     return (
       <div>
         <button onClick={this.handleOpenModal}>Upload Picture</button>
-        <Modal
+        <Modal 
+       
           isOpen={this.state.showModal}
           contentLabel="Minimal Modal Example"
         >

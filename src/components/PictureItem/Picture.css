@@ -3,8 +3,8 @@
     background-color: transparent;
     width: 320px;
     height: 320px;
-
     perspective: 1000px; /* Remove this if you don't want the 3D effect */
+
   }
   
   /* This container is needed to position the front and back side */
@@ -38,7 +38,70 @@
   
   /* Style the back side */
   .flip-box-back {
-    background-color: white;
+    background-color: #DA9100;
     color: black;
     transform: rotateY(180deg);
   }
+/*------------test 2----------*/
+  ul{
+    display: flex;
+    flex-wrap: wrap;
+    
+  }
+  li{
+    color: black;
+    border: 1px solid black;
+    border-radius: 5px;
+    height: 320px;
+    width: 320px;
+    list-style: none;
+    text-align: center;
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    transition: margin-top 400ms;
+    
+
+}
+.cardImg{
+  flex-grow: 1;
+  width: 320px;
+  height: 320px;
+  align-self: center;
+}
+
+h3{
+  flex-grow: 1;
+}
+
+/*------------test 3----------*/
+
+.container {
+  position: relative;
+  width: 320px;
+}
+
+.image {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  transition: .5s ease;
+  background-color: #DA9100;
+}
+
+.container:hover .overlay {
+  opacity: 1;
+}
+

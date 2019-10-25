@@ -2,20 +2,20 @@
     font-size: 24px;
     font-weight: 700;
     display: inline-block ;
-    color: #f2f2f2;
+    color: black;
     padding-left: 330px  ;
   
 }
 
 .nav {
   overflow: hidden;
-  background-color: navy;
+  background-color:#00551C;
 }
 
 .nav-link {
   float: left;
-  color: #f2f2f2;
-  background-color: navy;
+  color:black;
+  background-color: #00551C;
   text-align: center;
   padding: 24px 10px;
   text-decoration: none;
@@ -29,7 +29,7 @@
 }
 
 .nav-link:hover {
-  background-color: navy;
+  background-color:#1E4D2B;
 }
 
 .nav-right {

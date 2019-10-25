@@ -14,15 +14,13 @@ class DisplayPicture extends Component {
     }
     render() {
         return (
-            <div>
+            <ul>
                 {this.props.reduxState.pictureList.map((image) => {
-                        console.log('imagine', image.audio);
-
                     return (                       
                         <PictureItem key={image.id} image={image} getPicture={this.getPicture} />
                     )
                 })}
-            </div>
+            </ul>
         );
     }
 }
