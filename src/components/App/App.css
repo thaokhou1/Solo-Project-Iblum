@@ -1,7 +1,8 @@
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0px;
-    background-color: #A64500;
+    background-color: rgb(194, 100, 34);
+
 }
 
 .alert {
@@ -16,6 +17,7 @@ form {
     margin: 20px auto;
     padding: 25px;
     border-radius: 2px;
+    
 }
 
 input {
