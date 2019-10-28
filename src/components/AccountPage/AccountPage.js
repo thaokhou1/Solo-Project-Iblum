@@ -28,7 +28,7 @@ class AccountPage extends Component {
 
         },
       });
-   
+      alert('Your account has been updated!')
     } else {
       this.props.dispatch({ type: 'UPDATE_INPUT_ERROR' });
     }
@@ -112,6 +112,7 @@ class AccountPage extends Component {
             >
               Update Account
           </button>
+
             <button
               type="button"
               className="log-in"

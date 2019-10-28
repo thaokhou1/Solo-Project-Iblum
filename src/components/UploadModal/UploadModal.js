@@ -77,7 +77,7 @@ class UploadModal extends Component {
         >
                  Select image: <UploadPictures setPic={this.setImg} />
           Location: <input onChange={(event) => this.handleInputChangeFor(event, 'location')} />
-          Date:<input type="date" onChange={(event) => this.handleInputChangeFor(event, 'date')} />
+          Date:<input type="date" onChange={(event) => this.handleInputChangeFor(event, 'date')} /><br></br>
           Voice Clip: <AudioUpload setAudio={this.setFile} />
           <br></br>
           <div>
