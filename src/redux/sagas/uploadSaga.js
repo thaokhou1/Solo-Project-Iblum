@@ -27,8 +27,8 @@ function* uploadPicture(action) {
 
 function* deletePic(action) {
   try {
-    yield axios.delete('/api/picture/' + action.payload);
-
+yield axios.delete('/api/picture/' + action.payload);
+yield grabPic();
   } catch (err) {
     console.log('DELETE ERROR:', err);
   }
